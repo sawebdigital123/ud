@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kisan Kalyan - Farmer Schemes Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-tractor"></i>
+                <h1>Kisan Kalyan</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#schemes">Schemes</a></li>
+                    <li><a href="#apply">Apply</a></li>
+                    <li><a href="#track">Track</a></li>
+                    <li><a href="#help">Help</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <button id="loginBtn" class="btn btn-outline">Login</button>
+                <button id="registerBtn" class="btn btn-primary">Register</button>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Discover Government Schemes for Farmers</h1>
+                <p>Find and apply for various government-aided schemes to support your farming needs.</p>
+                <div class="search-box">
+                    <input type="text" placeholder="Search for schemes...">
+                    <button class="btn btn-primary">Search</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="a farmer standing in.png" alt="Farmer with crops">
+            </div>
+        </div>
+    </section>
+
+    <!-- Schemes Section -->
+    <section class="schemes" id="schemes">
+        <div class="container">
+            <h2>Available Schemes</h2>
+            <div class="filters">
+                <select id="categoryFilter">
+                    <option value="">All Categories</option>
+                    <option value="subsidy">Subsidy</option>
+                    <option value="loan">Loan</option>
+                    <option value="insurance">Insurance</option>
+                    <option value="training">Training</option>
+                </select>
+                <select id="stateFilter">
+                    <option value="">All States</option>
+                    <!-- Will be populated by JavaScript -->
+                </select>
+            </div>
+            <div class="schemes-grid" id="schemesContainer">
+                <!-- Schemes will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-icon">1</div>
+                    <h3>Register</h3>
+                    <p>Create your account with basic details</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">2</div>
+                    <h3>Find Schemes</h3>
+                    <p>Browse available government schemes</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">3</div>
+                    <h3>Apply Online</h3>
+                    <p>Fill and submit the application form</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">4</div>
+                    <h3>Track Status</h3>
+                    <p>Monitor your application progress</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Kisan Kalyan</h3>
+                    <p>Empowering farmers with easy access to government schemes and support programs.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#schemes">Schemes</a></li>
+                        <li><a href="#apply">How to Apply</a></li>
+                        <li><a href="#track">Track Application</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-phone"></i> Kisan Call Center: 1800-180-1551</p>
+                    <p><i class="fas fa-envelope"></i> support@kisankalyan.gov.in</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Kisan Kalyan. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Farmer Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginPhone">Mobile Number</label>
+                    <input type="tel" id="loginPhone" placeholder="Enter 10-digit mobile number" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" placeholder="Enter password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+                <p class="text-center">Don't have an account? <a href="#" id="showRegister">Register here</a></p>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Farmer Registration</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="mobile">Mobile Number</label>
+                    <input type="tel" id="mobile" placeholder="Enter 10-digit mobile number" required>
+                </div>
+                <div class="form-group">
+                    <label for="aadhaar">Aadhaar Number</label>
+                    <input type="text" id="aadhaar" placeholder="Enter 12-digit Aadhaar number" required>
+                </div>
+                <div class="form-group">
+                    <label for="state">State</label>
+                    <select id="state" required>
+                        <option value="">Select State</option>
+                        <!-- Will be populated by JavaScript -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="district">District</label>
+                    <select id="district" required disabled>
+                        <option value="">Select District</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="village">Village</label>
+                    <input type="text" id="village" placeholder="Enter your village name" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Create Password</label>
+                    <input type="password" id="password" placeholder="Create a strong password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Register</button>
+                <p class="text-center">Already have an account? <a href="#" id="showLogin">Login here</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
